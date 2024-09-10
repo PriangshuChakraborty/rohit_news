@@ -11,6 +11,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(express.json());
 const port = process.env.PORT;
+//
 
 app.get('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -19,7 +20,7 @@ app.get('/', async (req: Request, res: Response, next: NextFunction) => {
         const data = JSON.parse(str);
         res.status(200).json(data.data); // return the data from the api to the user
     } catch (error : any) {
-        next(new Error(error.message));
+        next(new Error(error));
     }
 });
 
