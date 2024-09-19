@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import axios from 'axios';
 import circularJSON from 'circular-json';
+import cors from 'cors';
 const app = express();
 
 if (process.env.NODE_ENV !== 'production') {
@@ -8,6 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
       path:'src/config/.env'
   });
 }
+app.use(cors());
 
 app.use(express.json());
 const port = process.env.PORT;
