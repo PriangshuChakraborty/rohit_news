@@ -9,7 +9,10 @@ if (process.env.NODE_ENV !== 'production') {
       path:'src/config/.env'
   });
 }
-app.use(cors());
+app.use(cors({
+  origin: '*', // allow to server to accept request from different origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+}));
 
 app.use(express.json());
 const port = process.env.PORT;
